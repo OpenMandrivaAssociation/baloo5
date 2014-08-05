@@ -9,6 +9,7 @@ Source0:	ftp://ftp.kde.org/pub/kde/stable/%{version}/src/baloo-%{version}.tar.xz
 BuildRequires:	xapian-devel
 BuildRequires:	pkgconfig(akonadi)
 BuildRequires:	pkgconfig(QJson)
+BuildRequires:	ninja
 BuildRequires:	qmake5
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(KF5FileMetaData)
