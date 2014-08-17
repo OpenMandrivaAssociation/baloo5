@@ -1,6 +1,6 @@
 Summary:	Baloo is a framework for searching and managing metadata
 Name:		baloo5
-Version:	5.0.0
+Version:	5.0.1
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -39,7 +39,7 @@ Requires:	qt5-database-plugin-sqlite
 %description
 Baloo is a framework for searching and managing metadata.
 
-%files -f akonadi_baloo_indexer.lang,baloo_file.lang,baloo_file_extractor.lang,baloo_queryparser.lang,baloosearch.lang,balooshow.lang,kcm_baloofile.lang,kio_baloosearch.lang,kio_tags.lang,kio_timeline.lang
+%files -f akonadi_baloo_indexer.lang,baloo_file.lang,baloo_file_extractor.lang,baloo_queryparser.lang,balooctl.lang,baloosearch.lang,balooshow.lang,kcm_baloofile.lang,kio_baloosearch.lang,kio_tags.lang,kio_timeline.lang
 %{_sysconfdir}/dbus-1/system.d/org.kde.baloo.filewatch.conf
 %{_sysconfdir}/xdg/autostart/baloo_file.desktop
 %{_bindir}/baloo_file
@@ -89,8 +89,8 @@ Baloo Core library
 The core library of the Baloo file indexing service.
 
 %files -n %{libbaloocore}
-%{_libdir}/libKF5BalooCore.so.%{baloocore_major}
-%{_libdir}/libKF5BalooCore.so.%{version}
+%{_libdir}/libKF5BalooCore.so.%{baloocore_major}*
+%{_libdir}/libKF5BalooCore.so.5.0.0
 
 #----------------------------------------------------------------------------
 
@@ -105,8 +105,8 @@ Group:		System/Libraries
 The Baloo file handling library, a part of the Baloo indexing framework
 
 %files -n %{libbaloofiles}
-%{_libdir}/libKF5BalooFiles.so.%{baloofiles_major}
-%{_libdir}/libKF5BalooFiles.so.%{version}
+%{_libdir}/libKF5BalooFiles.so.%{baloofiles_major}*
+%{_libdir}/libKF5BalooFiles.so.5.0.0
 
 #----------------------------------------------------------------------------
 
@@ -121,8 +121,8 @@ Group:		System/Libraries
 Xapian backend for the Baloo indexing framework
 
 %files -n %{libbalooxapian}
-%{_libdir}/libKF5BalooXapian.so.%{balooxapian_major}
-%{_libdir}/libKF5BalooXapian.so.%{version}
+%{_libdir}/libKF5BalooXapian.so.%{balooxapian_major}*
+%{_libdir}/libKF5BalooXapian.so.5.0.0
 
 #----------------------------------------------------------------------------
 
@@ -161,6 +161,7 @@ DESTDIR="%{buildroot}" ninja -C build install
 %find_lang baloo_file
 %find_lang baloo_file_extractor
 %find_lang baloo_queryparser
+%find_lang balooctl
 %find_lang baloosearch
 %find_lang balooshow
 %find_lang kcm_baloofile
