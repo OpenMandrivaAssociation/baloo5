@@ -1,7 +1,7 @@
 Summary:	Baloo is a framework for searching and managing metadata
 Name:		baloo5
 Version:	5.0.1
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		https://www.kde.org/
@@ -126,7 +126,7 @@ Xapian backend for the Baloo indexing framework
 
 #----------------------------------------------------------------------------
 
-%define devbaloo %mklibname baloo -d
+%define devbaloo %mklibname baloo5 -d
 
 %package -n %{devbaloo}
 Summary:	Development files for Baloo
