@@ -1,11 +1,13 @@
+%define major %(echo %{version} |cut -d. -f1-3)
+
 Summary:	Baloo is a framework for searching and managing metadata
 Name:		baloo5
-Version:	5.0.95
+Version:	5.1.0.1
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		https://www.kde.org/
-Source0:	ftp://ftp.kde.org/pub/kde/stable/%{version}/src/baloo-%{version}.tar.xz
+Source0:	ftp://ftp.kde.org/pub/kde/stable/plasma/%{major}/src/baloo-%{version}.tar.xz
 BuildRequires:	xapian-devel
 BuildRequires:	pkgconfig(akonadi)
 BuildRequires:	pkgconfig(QJson)
@@ -88,7 +90,7 @@ The core library of the Baloo file indexing service.
 
 %files -n %{libbaloocore}
 %{_libdir}/libKF5BalooCore.so.%{baloocore_major}*
-%{_libdir}/libKF5BalooCore.so.%{version}
+%{_libdir}/libKF5BalooCore.so.%{major}
 
 #----------------------------------------------------------------------------
 
@@ -104,7 +106,7 @@ The Baloo file handling library, a part of the Baloo indexing framework
 
 %files -n %{libbaloofiles}
 %{_libdir}/libKF5BalooFiles.so.%{baloofiles_major}*
-%{_libdir}/libKF5BalooFiles.so.%{version}
+%{_libdir}/libKF5BalooFiles.so.%{major}
 
 #----------------------------------------------------------------------------
 
@@ -120,7 +122,7 @@ The Baloo natural query parser library, a part of the Baloo indexing framework
 
 %files -n %{libbaloonqp}
 %{_libdir}/libKF5BalooNaturalQueryParser.so.%{baloonqp_major}*
-%{_libdir}/libKF5BalooNaturalQueryParser.so.%{version}
+%{_libdir}/libKF5BalooNaturalQueryParser.so.%{major}
 
 
 #----------------------------------------------------------------------------
@@ -137,7 +139,7 @@ Xapian backend for the Baloo indexing framework
 
 %files -n %{libbalooxapian}
 %{_libdir}/libKF5BalooXapian.so.%{balooxapian_major}*
-%{_libdir}/libKF5BalooXapian.so.%{version}
+%{_libdir}/libKF5BalooXapian.so.%{major}
 
 #----------------------------------------------------------------------------
 
@@ -164,7 +166,7 @@ based on Baloo.
 #--------------------------------------------------------------------
 
 %prep
-%setup -qn baloo-%{version}
+%setup -qn baloo-%{major}
 
 %build
 %cmake -G Ninja
