@@ -1,13 +1,14 @@
 %define major %(echo %{version} |cut -d. -f1-3)
+%define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Summary:	Baloo is a framework for searching and managing metadata
 Name:		baloo5
-Version:	5.1.0.1
-Release:	2
+Version:	5.1.1
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		https://www.kde.org/
-Source0:	ftp://ftp.kde.org/pub/kde/stable/plasma/%{major}/src/baloo-%{version}.tar.xz
+Source0:	ftp://ftp.kde.org/pub/kde/%{stable}/plasma/%{major}/baloo-%{version}.tar.xz
 BuildRequires:	xapian-devel
 BuildRequires:	pkgconfig(akonadi)
 BuildRequires:	pkgconfig(QJson)
