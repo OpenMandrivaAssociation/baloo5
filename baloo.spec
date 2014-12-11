@@ -56,23 +56,23 @@ Baloo is a framework for searching and managing metadata.
 %{_datadir}/icons/hicolor/*/*/baloo.png
 %{_datadir}/polkit-1/actions/org.kde.baloo.filewatch.policy
 %{_libdir}/libexec/kauth/kde_baloo_filewatch_raiselimit
-%{_libdir}/plugins/kcm_baloofile.so
-%{_libdir}/plugins/kded_baloosearch_kio.so
-%dir %{_libdir}/plugins/kf5/baloo
-%{_libdir}/plugins/kf5/baloo/calendarsearchstore.so
-%{_libdir}/plugins/kf5/baloo/contactsearchstore.so
-%{_libdir}/plugins/kf5/baloo/emailsearchstore.so
-%{_libdir}/plugins/kf5/baloo/filesearchstore.so
-%{_libdir}/plugins/kf5/baloo/notesearchstore.so
-%{_libdir}/plugins/kf5/kio/baloosearch.so
-%{_libdir}/plugins/kf5/kio/tags.so
-%{_libdir}/plugins/kf5/kio/timeline.so
+%{_libdir}/qt5/plugins/kcm_baloofile.so
+%{_libdir}/qt5/plugins/kded_baloosearch_kio.so
+%dir %{_libdir}/qt5/plugins/kf5/baloo
+%{_libdir}/qt5/plugins/kf5/baloo/calendarsearchstore.so
+%{_libdir}/qt5/plugins/kf5/baloo/contactsearchstore.so
+%{_libdir}/qt5/plugins/kf5/baloo/emailsearchstore.so
+%{_libdir}/qt5/plugins/kf5/baloo/filesearchstore.so
+%{_libdir}/qt5/plugins/kf5/baloo/notesearchstore.so
+%{_libdir}/qt5/plugins/kf5/kio/baloosearch.so
+%{_libdir}/qt5/plugins/kf5/kio/tags.so
+%{_libdir}/qt5/plugins/kf5/kio/timeline.so
 %{_datadir}/kservices5/baloosearch.protocol
 %{_datadir}/kservices5/kcm_baloofile.desktop
 %{_datadir}/kservices5/tags.protocol
 %{_datadir}/kservices5/timeline.protocol
 %{_datadir}/kservices5/kded/baloosearchfolderupdater.desktop
-%{_libdir}/qml/org/kde/baloo
+%{_libdir}/qt5/qml/org/kde/baloo
 
 #----------------------------------------------------------------------------
 
@@ -171,7 +171,8 @@ based on Baloo.
 %setup -qn baloo-%{major}
 
 %build
-%cmake -G Ninja
+%cmake -G Ninja \
+	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
 ninja
 
 %install
