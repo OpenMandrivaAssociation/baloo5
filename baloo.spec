@@ -4,7 +4,7 @@
 
 Summary:	Baloo is a framework for searching and managing metadata
 Name:		baloo5
-Version:	5.6.1
+Version:	5.6.2
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -13,18 +13,21 @@ Source0:	ftp://ftp.kde.org/pub/kde/%{stable}/plasma/%{kdeversion}/baloo-%{versio
 BuildRequires:	xapian-devel
 BuildRequires:	pkgconfig(akonadi)
 BuildRequires:	pkgconfig(QJson)
+BuildRequires:	pkgconfig(Qt5Core)
+BuildRequires:	pkgconfig(Qt5DBus)
+BuildRequires:	pkgconfig(Qt5Gui)
+BuildRequires:	pkgconfig(Qt5Network)
+BuildRequires:	pkgconfig(Qt5Qml)
+BuildRequires:	pkgconfig(Qt5Quick)
+BuildRequires:	pkgconfig(Qt5Sql)
+BuildRequires:	pkgconfig(Qt5Test)
+BuildRequires:	pkgconfig(Qt5Widgets)
+BuildRequires:	pkgconfig(Qt5Xml)
 BuildRequires:	ninja
 BuildRequires:	qmake5
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(KF5FileMetaData)
 BuildRequires:	kfilemetadata5-devel
-BuildRequires:	cmake(Qt5Core)
-BuildRequires:	cmake(Qt5Gui)
-BuildRequires:	cmake(Qt5Widgets)
-BuildRequires:	cmake(Qt5DBus)
-BuildRequires:	cmake(Qt5Test)
-BuildRequires:	cmake(Qt5Sql)
-BuildRequires:	cmake(Qt5)
 BuildRequires:	cmake(Gettext)
 BuildRequires:	cmake(KF5I18n)
 BuildRequires:	cmake(KF5Config)
@@ -39,6 +42,7 @@ BuildRequires:	cmake(KF5KDELibs4Support)
 BuildRequires:	cmake(KF5FileMetaData)
 # (tpg) https://issues.openmandriva.org/show_bug.cgi?id=865
 Requires:	qt5-database-plugin-sqlite
+Requires:	kfilemetadata5
 
 %description
 Baloo is a framework for searching and managing metadata.
