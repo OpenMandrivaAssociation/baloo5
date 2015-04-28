@@ -4,7 +4,7 @@
 
 Summary:	Baloo is a framework for searching and managing metadata
 Name:		baloo5
-Version:	5.6.2
+Version:	5.6.95
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -23,8 +23,6 @@ BuildRequires:	pkgconfig(Qt5Sql)
 BuildRequires:	pkgconfig(Qt5Test)
 BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(Qt5Xml)
-BuildRequires:	ninja
-BuildRequires:	qmake5
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(KF5FileMetaData)
 BuildRequires:	kfilemetadata5-devel
@@ -134,14 +132,14 @@ based on Baloo.
 
 %prep
 %setup -qn baloo-%{major}
+%cmake_kde5
 
 %build
-%cmake -G Ninja \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
-ninja
+%ninja -C build
 
 %install
-DESTDIR="%{buildroot}" ninja -C build install
+%ninja_install -C build
+
 %find_lang baloo_file
 %find_lang baloo_file_extractor
 %find_lang balooctl
