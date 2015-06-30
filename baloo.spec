@@ -9,7 +9,7 @@ Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		https://www.kde.org/
-Source0:	ftp://ftp.kde.org/pub/kde/%{stable}/plasma/%{kdeversion}/baloo-%{version}.tar.xz
+Source0:	http://download.kde.org/%{stable}/plasma/%{kdeversion}/baloo-%{version}.tar.xz
 BuildRequires:	xapian-devel
 BuildRequires:	pkgconfig(akonadi)
 BuildRequires:	pkgconfig(QJson)
