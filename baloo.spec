@@ -1,7 +1,3 @@
-%define major %(echo %{version} |cut -d. -f1-3)
-%define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
-%define kdeversion %(echo $(echo %{version} |cut -d. -f1).$(expr $(echo %{version} |cut -d. -f2) - 4).$(echo %{version} |cut -d. -f3-))
-
 Summary:	Baloo is a framework for searching and managing metadata
 Name:		baloo5
 Version:	5.9.2
@@ -9,7 +5,7 @@ Release:	2
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		https://www.kde.org/
-Source0:	http://download.kde.org/%{stable}/plasma/%{kdeversion}/baloo-%{version}.tar.xz
+Source0:	http://download.kde.org/stable/frameworks/%(echo %{version} |cut -d. -f1-2)/baloo-%{version}.tar.xz
 BuildRequires:	xapian-devel
 BuildRequires:	pkgconfig(akonadi)
 BuildRequires:	pkgconfig(QJson)
@@ -25,7 +21,6 @@ BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(Qt5Xml)
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(KF5FileMetaData)
-BuildRequires:	kfilemetadata5-devel
 BuildRequires:	cmake(Gettext)
 BuildRequires:	cmake(KF5I18n)
 BuildRequires:	cmake(KF5Config)
@@ -131,7 +126,7 @@ based on Baloo.
 #--------------------------------------------------------------------
 
 %prep
-%setup -qn baloo-%{major}
+%setup -qn baloo-%{version}
 %cmake_kde5
 
 %build
