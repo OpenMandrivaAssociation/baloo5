@@ -33,6 +33,7 @@ BuildRequires:	cmake(KF5Solid)
 BuildRequires:	cmake(KF5KIO)
 BuildRequires:	cmake(KF5KDELibs4Support)
 BuildRequires:	cmake(KF5FileMetaData)
+BuildRequires: lmdb-devel
 # (tpg) https://issues.openmandriva.org/show_bug.cgi?id=865
 Requires:	qt5-database-plugin-sqlite
 Requires:	kfilemetadata5
