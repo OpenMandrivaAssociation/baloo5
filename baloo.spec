@@ -6,7 +6,6 @@ License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		https://www.kde.org/
 Source0:	http://download.kde.org/stable/frameworks/%(echo %{version} |cut -d. -f1-2)/baloo-%{version}.tar.xz
-BuildRequires:	xapian-devel
 BuildRequires:	pkgconfig(akonadi)
 BuildRequires:	pkgconfig(QJson)
 BuildRequires:	pkgconfig(Qt5Core)
@@ -20,7 +19,6 @@ BuildRequires:	pkgconfig(Qt5Test)
 BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(Qt5Xml)
 BuildRequires:	cmake(ECM)
-BuildRequires:	cmake(KF5FileMetaData)
 BuildRequires:	cmake(Gettext)
 BuildRequires:	cmake(KF5I18n)
 BuildRequires:	cmake(KF5Config)
@@ -31,9 +29,8 @@ BuildRequires:	cmake(KF5Auth)
 BuildRequires:	cmake(KF5Crash)
 BuildRequires:	cmake(KF5Solid)
 BuildRequires:	cmake(KF5KIO)
-BuildRequires:	cmake(KF5KDELibs4Support)
 BuildRequires:	cmake(KF5FileMetaData)
-BuildRequires: lmdb-devel
+BuildRequires:	lmdb-devel
 # (tpg) https://issues.openmandriva.org/show_bug.cgi?id=865
 Requires:	qt5-database-plugin-sqlite
 Requires:	kfilemetadata5
@@ -45,8 +42,8 @@ Baloo is a framework for searching and managing metadata.
 %{_sysconfdir}/dbus-1/system.d/org.kde.baloo.filewatch.conf
 %{_sysconfdir}/xdg/autostart/baloo_file.desktop
 %{_bindir}/baloo_file
-%{_bindir}/baloo_file_cleaner
 %{_bindir}/baloo_file_extractor
+%{_bindir}/baloo-monitor
 %{_bindir}/balooctl
 %{_bindir}/baloosearch
 %{_bindir}/balooshow
@@ -67,16 +64,17 @@ Baloo is a framework for searching and managing metadata.
 
 #----------------------------------------------------------------------------
 
-%define baloo_major 1
+%define baloo_major 5
 %define libbaloo %mklibname KF5Baloo %{baloo_major}
 
 %package -n %{libbaloo}
 Summary:	Baloo Core library
 Group:		System/Libraries
 Requires:	%{name} = %{EVRD}
-Obsoletes: %{mklibname KF5BalooCore 1}
-Obsoletes: %{mklibname KF5BalooFiles 1}
-Obsoletes: %{mklibname KF5BalooNaturalQueryParser 1}
+Obsoletes:	%{mklibname KF5BalooCore 1}
+Obsoletes:	%{mklibname KF5BalooFiles 1}
+Obsoletes:	%{mklibname KF5BalooNaturalQueryParser 1}
+Obsoletes:	%{mklibname KF5Baloo 1} < 5.13.0
 
 %description -n %{libbaloo}
 Baloo Core library
@@ -84,24 +82,24 @@ Baloo Core library
 The core library of the Baloo file indexing service.
 
 %files -n %{libbaloo}
-%{_libdir}/libKF5Baloo.so.%{baloo_major}*
+%{_libdir}/libKF5Baloo.so.%{baloo_major}
 %{_libdir}/libKF5Baloo.so.%{version}
 
 #----------------------------------------------------------------------------
 
-%define balooxapian_major 1
-%define libbalooxapian %mklibname KF5BalooXapian %{balooxapian_major}
+%define balooengine_major 5
+%define libbalooengine %mklibname KF5BalooEngine %{balooengine_major}
 
-%package -n %{libbalooxapian}
-Summary:	Xapian backend for Baloo
+%package -n %{libbalooengine}
+Summary:	Plasma searching and managing metadata shared library
 Group:		System/Libraries
 
-%description -n %{libbalooxapian}
-Xapian backend for the Baloo indexing framework
+%description -n %{libbalooengine}
+Plasma searching and managing metadata shared library.
 
-%files -n %{libbalooxapian}
-%{_libdir}/libKF5BalooXapian.so.%{balooxapian_major}*
-%{_libdir}/libKF5BalooXapian.so.%{major}
+%files -n %{libbalooengine}
+%{_libdir}/libKF5BalooEngine.so.%{balooengine_major}
+%{_libdir}/libKF5BalooEngine.so.%{version}
 
 #----------------------------------------------------------------------------
 
@@ -111,7 +109,7 @@ Xapian backend for the Baloo indexing framework
 Summary:	Development files for Baloo
 Group:		Development/KDE and Qt
 Requires:	%{libbaloo} = %{EVRD}
-Requires:	%{libbalooxapian} = %{EVRD}
+Requires:	%{libbalooengine} = %{EVRD}
 Provides:	%{name}-devel = %{EVRD}
 
 %description -n %{devbaloo}
