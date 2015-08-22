@@ -6,7 +6,6 @@ License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		https://www.kde.org/
 Source0:	http://download.kde.org/stable/frameworks/%(echo %{version} |cut -d. -f1-2)/baloo-%{version}.tar.xz
-BuildRequires:	pkgconfig(akonadi)
 BuildRequires:	pkgconfig(QJson)
 BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5DBus)
@@ -30,6 +29,7 @@ BuildRequires:	cmake(KF5Crash)
 BuildRequires:	cmake(KF5Solid)
 BuildRequires:	cmake(KF5KIO)
 BuildRequires:	cmake(KF5FileMetaData)
+BuildRequires:	cmake(KF5AkonadiServer)
 BuildRequires:	lmdb-devel
 # (tpg) https://issues.openmandriva.org/show_bug.cgi?id=865
 Requires:	qt5-database-plugin-sqlite
