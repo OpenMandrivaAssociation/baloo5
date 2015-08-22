@@ -7,6 +7,7 @@ Group:		Graphical desktop/KDE
 Url:		https://www.kde.org/
 Source0:	http://download.kde.org/stable/frameworks/%(echo %{version} |cut -d. -f1-2)/baloo-%{version}.tar.xz
 Patch0:		baloo-5.13.0-translations.patch
+Patch1:		baloo-5.13.0-pkgconfig.patch
 BuildRequires:	pkgconfig(QJson)
 BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5DBus)
