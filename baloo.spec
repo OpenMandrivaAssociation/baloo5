@@ -134,10 +134,10 @@ based on Baloo.
 %install
 %ninja_install -C build
 
-%find_lang baloo_file_extractor
-%find_lang balooctl
-%find_lang baloosearch
-%find_lang balooshow
-%find_lang kio_baloosearch
-%find_lang kio_tags
-%find_lang kio_timeline
+#%find_lang baloo_file_extractor
+#%find_lang balooctl
+#%find_lang baloosearch
+#%find_lang balooshow
+#%find_lang kio_baloosearch
+#%find_lang kio_tags
+#%find_lang kio_timeline
