@@ -6,6 +6,7 @@ License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		https://www.kde.org/
 Source0:	http://download.kde.org/stable/frameworks/%(echo %{version} |cut -d. -f1-2)/baloo-%{version}.tar.xz
+Patch0:		baloo-5.13.0-translations.patch
 BuildRequires:	pkgconfig(QJson)
 BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5DBus)
@@ -38,8 +39,7 @@ Requires:	kfilemetadata5
 %description
 Baloo is a framework for searching and managing metadata.
 
-%files 
-#-f baloo_file.lang,baloo_file_extractor.lang,balooctl.lang,baloosearch.lang,balooshow.lang,kio_baloosearch.lang,kio_tags.lang,kio_timeline.lang
+%files -f baloo_file.lang,baloo_file_extractor.lang,balooctl.lang,baloosearch.lang,balooshow.lang,kio_baloosearch.lang,kio_tags.lang,kio_timeline.lang
 %{_sysconfdir}/dbus-1/system.d/org.kde.baloo.filewatch.conf
 %{_sysconfdir}/xdg/autostart/baloo_file.desktop
 %{_bindir}/baloo_file
@@ -122,11 +122,13 @@ based on Baloo.
 %{_includedir}/KF5/baloo_version.h
 %{_libdir}/*.so
 %{_libdir}/cmake/KF5Baloo
+%{_libdir}/pkgconfig/Baloo.pc
 
 #--------------------------------------------------------------------
 
 %prep
 %setup -qn baloo-%{version}
+%apply_patches
 %cmake_kde5
 
 %build
@@ -135,10 +137,11 @@ based on Baloo.
 %install
 %ninja_install -C build
 
-#%find_lang baloo_file_extractor
-#%find_lang balooctl
-#%find_lang baloosearch
-#%find_lang balooshow
-#%find_lang kio_baloosearch
-#%find_lang kio_tags
-#%find_lang kio_timeline
+%find_lang baloo_file
+%find_lang baloo_file_extractor
+%find_lang balooctl
+%find_lang baloosearch
+%find_lang balooshow
+%find_lang kio_baloosearch
+%find_lang kio_tags
+%find_lang kio_timeline

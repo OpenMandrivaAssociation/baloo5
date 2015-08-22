@@ -1,0 +1,23 @@
+From: David Faure <faure@kde.org>
+Date: Thu, 06 Aug 2015 22:38:50 +0000
+Subject: install translations, spotted by Hrvoje Senjan.
+X-Git-Url: http://quickgit.kde.org/?p=baloo.git&a=commitdiff&h=101c0ff05fbfee7eeab1c760ccb2b63e14e890c0
+---
+install translations, spotted by Hrvoje Senjan.
+---
+
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -73,6 +73,10 @@
+     add_subdirectory(autotests)
+ endif()
+ 
++if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
++   ki18n_install(po)
++endif()
++
+ # Config files
+ set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/KF5Baloo")
+ 
+
