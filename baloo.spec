@@ -38,7 +38,8 @@ Requires:	kfilemetadata5
 %description
 Baloo is a framework for searching and managing metadata.
 
-%files -f baloo_file.lang,baloo_file_extractor.lang,balooctl.lang,baloosearch.lang,balooshow.lang,kio_baloosearch.lang,kio_tags.lang,kio_timeline.lang
+%files 
+#-f baloo_file.lang,baloo_file_extractor.lang,balooctl.lang,baloosearch.lang,balooshow.lang,kio_baloosearch.lang,kio_tags.lang,kio_timeline.lang
 %{_sysconfdir}/dbus-1/system.d/org.kde.baloo.filewatch.conf
 %{_sysconfdir}/xdg/autostart/baloo_file.desktop
 %{_bindir}/baloo_file
