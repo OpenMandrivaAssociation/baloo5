@@ -134,7 +134,6 @@ based on Baloo.
 %install
 %ninja_install -C build
 
-%find_lang baloo_file
 %find_lang baloo_file_extractor
 %find_lang balooctl
 %find_lang baloosearch
