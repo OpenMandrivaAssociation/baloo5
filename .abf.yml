@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   baloo-5.13.0.tar.xz: 6f2c689ab3e6d3550163bd26f3d510054dd6e9ef
+sources:
+  baloo-5.14.0.tar.xz: ef74f411a6b2d8d7858b8edf4de9d4306867604e
