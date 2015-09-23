@@ -49,18 +49,20 @@ Baloo is a framework for searching and managing metadata.
 %{_bindir}/baloosearch
 %{_bindir}/balooshow
 %{_datadir}/dbus-1/interfaces/org.kde.baloo.file.indexer.xml
+%{_datadir}/dbus-1/interfaces/org.kde.baloo.fileindexer.xml
+%{_datadir}/dbus-1/interfaces/org.kde.baloo.main.xml
+%{_datadir}/dbus-1/interfaces/org.kde.baloo.scheduler.xml
 %{_datadir}/dbus-1/system-services/org.kde.baloo.filewatch.service
 %{_datadir}/icons/hicolor/*/*/baloo.png
 %{_datadir}/polkit-1/actions/org.kde.baloo.filewatch.policy
 %{_libdir}/libexec/kauth/kde_baloo_filewatch_raiselimit
-%{_libdir}/qt5/plugins/kded_baloosearch_kio.so
+%{_libdir}/qt5/plugins/kf5/kded/baloosearchmodule.so
 %{_libdir}/qt5/plugins/kf5/kio/baloosearch.so
 %{_libdir}/qt5/plugins/kf5/kio/tags.so
 %{_libdir}/qt5/plugins/kf5/kio/timeline.so
 %{_datadir}/kservices5/baloosearch.protocol
 %{_datadir}/kservices5/tags.protocol
 %{_datadir}/kservices5/timeline.protocol
-%{_datadir}/kservices5/kded/baloosearchfolderupdater.desktop
 %{_libdir}/qt5/qml/org/kde/baloo
 
 #----------------------------------------------------------------------------
