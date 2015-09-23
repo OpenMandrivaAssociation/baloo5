@@ -1,3 +1,6 @@
+# filter bad requires on private lib
+%define __noautoreq 'devel\\(libKF5BalooEngine.*'
+
 Summary:	Baloo is a framework for searching and managing metadata
 Name:		baloo5
 Version:	5.14.0
