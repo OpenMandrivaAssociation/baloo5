@@ -3,7 +3,7 @@
 
 Summary:	Baloo is a framework for searching and managing metadata
 Name:		baloo5
-Version:	5.14.0
+Version:	5.15.0
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -42,12 +42,10 @@ Requires:	kfilemetadata5
 %description
 Baloo is a framework for searching and managing metadata.
 
-%files -f baloo_file.lang,baloo_file_extractor.lang,balooctl.lang,baloosearch.lang,balooshow.lang,kio_baloosearch.lang,kio_tags.lang,kio_timeline.lang
-%{_sysconfdir}/dbus-1/system.d/org.kde.baloo.filewatch.conf
+%files -f baloo_file.lang,baloo_file_extractor.lang,balooctl.lang,baloomonitorplugin.lang,baloosearch.lang,balooshow.lang,kio_baloosearch.lang,kio_tags.lang,kio_timeline.lang
 %{_sysconfdir}/xdg/autostart/baloo_file.desktop
 %{_bindir}/baloo_file
 %{_bindir}/baloo_file_extractor
-%{_bindir}/baloo-monitor
 %{_bindir}/balooctl
 %{_bindir}/baloosearch
 %{_bindir}/balooshow
@@ -55,10 +53,7 @@ Baloo is a framework for searching and managing metadata.
 %{_datadir}/dbus-1/interfaces/org.kde.baloo.fileindexer.xml
 %{_datadir}/dbus-1/interfaces/org.kde.baloo.main.xml
 %{_datadir}/dbus-1/interfaces/org.kde.baloo.scheduler.xml
-%{_datadir}/dbus-1/system-services/org.kde.baloo.filewatch.service
 %{_datadir}/icons/hicolor/*/*/baloo.png
-%{_datadir}/polkit-1/actions/org.kde.baloo.filewatch.policy
-%{_libdir}/libexec/kauth/kde_baloo_filewatch_raiselimit
 %{_libdir}/qt5/plugins/kf5/kded/baloosearchmodule.so
 %{_libdir}/qt5/plugins/kf5/kio/baloosearch.so
 %{_libdir}/qt5/plugins/kf5/kio/tags.so
@@ -145,6 +140,7 @@ based on Baloo.
 %find_lang baloo_file
 %find_lang baloo_file_extractor
 %find_lang balooctl
+%find_lang baloomonitorplugin
 %find_lang baloosearch
 %find_lang balooshow
 %find_lang kio_baloosearch
