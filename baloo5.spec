@@ -1,5 +1,6 @@
 # filter bad requires on private lib
 %define __noautoreq 'devel\\(libKF5BalooEngine.*'
+%define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 
 Summary:	Baloo is a framework for searching and managing metadata
 Name:		baloo5
@@ -8,7 +9,7 @@ Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		https://www.kde.org/
-Source0:	http://download.kde.org/stable/frameworks/%(echo %{version} |cut -d. -f1-2)/baloo-%{version}.tar.xz
+Source0:	http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/baloo-%{version}.tar.xz
 Patch1:		baloo-5.13.0-pkgconfig.patch
 BuildRequires:	pkgconfig(QJson)
 BuildRequires:	pkgconfig(Qt5Core)
