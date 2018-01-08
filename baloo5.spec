@@ -4,7 +4,7 @@
 
 Summary:	Baloo is a framework for searching and managing metadata
 Name:		baloo5
-Version:	5.41.0
+Version:	5.42.0
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -43,6 +43,7 @@ Requires:	kfilemetadata5
 Baloo is a framework for searching and managing metadata.
 
 %files -f baloo_file5.lang,baloo_file_extractor5.lang,balooctl5.lang,baloomonitorplugin.lang,baloosearch5.lang,balooshow5.lang,kio5_baloosearch.lang,kio5_tags.lang,kio5_timeline.lang
+%{_sysconfdir}/xdg/baloo.categories
 %{_sysconfdir}/xdg/autostart/baloo_file.desktop
 %{_bindir}/baloo_file
 %{_bindir}/baloo_file_extractor
